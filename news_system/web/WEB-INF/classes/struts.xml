@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name= "struts.multipart.maxSize" value="2147483648" /><!-- 2GB -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="default" extends="struts-default">
+	
+	
+	    <action name="saveUser" class="UserAction" method="saveUser">
+			<result name="success" type="redirectAction">getAllUser</result>	
+		</action> 
+	    <action name="deleteUser" class="UserAction" method="deleteUser">
+			<result name="success" type="redirectAction">getAllUser</result>	
+		</action>
+	    <action name="updateUser" class="UserAction" method="updateUser">
+			<result name="success" type="redirectAction">getAllUser</result>	
+		</action>
+		<action name="login" class="UserAction" method="login">
+			<result name="user" type="chain">getAllNews</result>
+			<!--  <result name="admin" ></result>-->
+			<result name="fail">login.jsp</result>
+		</action>
+		<action name="loginout" class="UserAction" method="loginout">
+				<result name="success" type="chain">getAllNews</result>
+		</action>
+		<action name="getAllUser" class="UserAction" method="getAllUser">
+				<result name="success">userList.jsp</result>
+		</action>
+		<action name="searchUser" class="UserAction" method="search">
+			<result name="success">userList.jsp</result>	
+		</action>
+		<action name="userEdit" class="UserAction" method="edit">
+			<result name="userEdit">userEdit.jsp</result>
+			<result name="personEdit">PersonEdit.jsp</result>
+		</action>
+		<action name="register" class="UserAction" method="register">
+			<result name="success">login.jsp</result>
+		</action>
+		<action name="checkAccount" class="UserAction" method="checkAccount">
+		</action>
+		
+
+		
+		<action name="saveNews" class="NewsAction" method="saveNews">
+			<result name="success" type="redirectAction">getAllNews</result>
+			<!-- 配置名字为fileUpload的拦截器 -->
+           <interceptor-ref name="fileUpload">
+             <!-- 配置允许上传的文件类型 -->
+              <!--<param name="allowedTypes">image/bmp,image/png,image/gif,
+                 image/jpeg,image/pjpeg,image/x-png</param>-->
+             <!-- 配置允许上传文件的大小(单位字节) -->
+              <!--<param name="maximumSize">80000</param>-->
+           </interceptor-ref>      
+           <interceptor-ref name="defaultStack"></interceptor-ref>	
+		</action> 
+	    <action name="deleteNews" class="NewsAction" method="deleteNews">
+	    	<result name="success" type="redirectAction">getAllNews</result>	
+		</action>
+	    <action name="updateNews" class="NewsAction" method="updateNews">
+			<result name="success" type="redirectAction">getAllNews</result>	
+		</action>
+		<action name="getAllNews" class="NewsAction" method="getAllNews">
+			<result name="success">index.jsp</result>	
+		</action>
+		<action name="newsdetail" class="NewsAction" method="detail">
+			<result name="success">detail.jsp</result>	
+		</action>
+		<action name="newsedit" class="NewsAction" method="edit">
+			<result name="success">newsEdit.jsp</result>	
+		</action>
+		<action name="myNewsList" class="NewsAction" method="getMyNews">
+			<result name="success">index.jsp</result>	
+		</action>
+		<action name="searchNews" class="NewsAction" method="search">
+			<result name="success">index.jsp</result>	
+		</action>
+		<action name="download" class="NewsAction" method="downloadFile">
+			<result name="success" type="stream">
+			<!-- 指定下载文件的类型 -->
+             <!--  <param name="contentType">image/gif</param>-->
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">downloadFile</param>
+             <param name="contentDisposition">attachement;filename=${enclosureName}</param>
+             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+			</result>	
+		</action>
+		
+		<action name="getAllCategory" class="NewsCategoryAction" method="getAllCategory">
+			<result name="success">categoryList.jsp</result>			
+		</action>
+		<action name="updateCategory" class="NewsCategoryAction" method="update">
+			<result name="success" type="redirectAction">getAllCategory</result>	
+		</action>
+		<action name="addCategory" class="NewsCategoryAction" method="add">
+			<result name="success" type="redirectAction">getAllCategory</result>	
+		</action>
+		<action name="searchCategory" class="NewsCategoryAction" method="search">
+			<result name="success">categoryList.jsp</result>	
+		</action>
+		<action name="AllCategory" class="NewsCategoryAction" method="AllCategory">
+			<result name="success">addNews.jsp</result>			
+		</action>
+
+		<action name="publishComment" class="CommentAction" method="publish">
+		</action>
+		<action name="loadComment" class="CommentAction" method="loadComment">
+		</action>
+		
+		
+		<action name="test" class="TestAction" method="test">
+			<result name="success">test.jsp</result>			
+		</action>
+	</package>
+	
+</struts>

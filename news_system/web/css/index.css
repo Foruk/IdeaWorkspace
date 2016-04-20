@@ -1,0 +1,137 @@
+.button.yellow{
+border:1px solid #d2a000;
+box-shadow: 0 1px 2px #fedd71 inset,0 -1px 0 #a38b39 inset,0 -2px 3px #fedd71 inset;
+background: -webkit-linear-gradient(top,#fece34,#d8a605);
+background: -moz-linear-gradient(top,#fece34,#d8a605);
+background: linear-gradient(top,#fece34,#d8a605);
+}
+.button.green{
+border:1px solid #64c878;
+box-shadow: 0 1px 2px #b9ecc4 inset,0 -1px 0 #6c9f76 inset,0 -2px 3px #b9ecc4 inset;
+background: -webkit-linear-gradient(top,#90dfa2,#84d494);
+background: -moz-linear-gradient(top,#90dfa2,#84d494);
+background: linear-gradient(top,#90dfa2,#84d494);
+}
+.button.red{
+border:1px solid #b42323;
+box-shadow: 0 1px 2px #e99494 inset,0 -1px 0 #954b4b inset,0 -2px 3px #e99494 inset;
+background: -webkit-linear-gradient(top,#d53939,#b92929);
+background: -moz-linear-gradient(top,#d53939,#b92929);
+background: linear-gradient(top,#d53939,#b92929);
+}
+.Q-tpList{
+border: 5px solid #f0f0f0;
+    position: relative;
+    padding-bottom: 14px;
+}
+.Q-tpWrap{
+	position: static;
+}
+.Q-tpList .pic{
+	margin: 13px 19px 0 0;
+    width: 150px;
+    height: 100px;
+    position: relative;
+}
+.Q-tpList .pic{
+	float: left;
+    margin-right: 10px;
+    overflow: hidden;
+    display: inline;
+    text-align: center;
+}
+.pic img{
+	 width: 120px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: -4px;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+}
+.Q-tpList em{
+	font: 20px/35px "Î¢ÈíÑÅºÚ","simhei";
+    margin: 8px 0 0;
+    display: inline-block;
+}
+.btns{
+	    top: 19px;
+	        width: 118px;
+    height: 12px;
+    position: absolute;
+    top: 24px;
+    right: 0;
+}
+a.discuzBtn
+{
+	    float: right;
+    display: inline;
+    cursor: pointer;
+    
+}
+.discuzBtn{
+margin-left: 12px;
+    padding: 0 5px 0 16px;
+    font: 12px/14px "Tahoma";
+    background: url(http://mat1.gtimg.com/news/news2013/img/icons.png) no-repeat 0 -79px;
+    
+}
+.option_delete{
+	float:right;
+	width:20px;
+	height:15px;
+	position:absolute;
+	top:0px;
+	left:52px;
+	/*background-color: #000000;*/
+}
+.option_edit{
+	float:right;
+	width:20px;
+	height:15px;
+	position:absolute;
+	left:30px;
+}
+.btns img{
+	width:100%;
+	height:100%;
+}
+/*.option a{
+	width:100px;
+}
+.option ul{
+	width:95px;
+	display:none;
+}
+.option ul li{
+	height:50px;
+	width:100%;
+	    list-style: none;
+}
+.option a:hover ul{
+	display:block;
+	position:absolute;
+	left:20px;
+	bottom:10px;
+}
+.option ul:hover{
+	display:block;
+}*/
+
+
+body{
+font: 12px "ËÎÌå","Arial Narrow",HELVETICA;
+}
+a:visited {
+    color: #241a2a;
+}
+a:link {
+    color: #000;
+}
+a {
+    outline: none;
+}
+a {
+    text-decoration: none;
+}

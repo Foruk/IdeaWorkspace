@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!--  定义数据源   -->
+	<bean id="sqlserver"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=news_system">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	
+	<!--  定义Hibernate的sessionFactory --> 
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!--  指定数据源   --> 		
+		<property name="dataSource">
+			<ref bean="sqlserver" />
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<!--  指定使用方言   -->			
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.use_sql_comments">true</prop>
+			</props>
+		</property>
+		
+		<!--  指定Hibernate映射文件   --> 
+		<property name="mappingResources">
+			<list>
+			<value>Entity/News.hbm.xml</value>
+			<value>Entity/User.hbm.xml</value>
+			<value>Entity/NewsCategory.hbm.xml</value>
+			<value>Entity/Comment.hbm.xml</value>
+			</list>
+		</property>
+		
+		
+	</bean>
+	  
+	<!-- 事务管理器 Bean -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<!-- 属性sessionFactory设置为前面的sessionFactory工厂Bean -->
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean> 
+	
+	<!--  定义事务管理拦截器  --> 
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+	  <property name="transactionManager" ref="transactionManager" /> 
+	  <property name="transactionAttributes">
+	    <props>
+	      <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop> 
+	      <prop key="*">PROPAGATION_REQUIRED</prop> 
+	    </props>
+	  </property>
+  	</bean>
+
+	<bean id="UserDao" class="DaoImpl.UserDaoImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+    </bean>
+    <bean id="UserService" class="ServiceImpl.UserServiceImpl">
+		<property name="userDao">
+			<ref local="UserDao" />
+		</property>
+    </bean>
+	<bean id="UserAction" class="Action.UserAction" scope="prototype">
+		<property name="userService" ref="UserService" />
+	</bean>	
+	
+	<bean id="NewsDao" class="DaoImpl.NewsDaoImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+    </bean>
+    <bean id="NewsService" class="ServiceImpl.NewsServiceImpl">
+		<property name="newsDao">
+			<ref local="NewsDao" />
+		</property>
+    </bean>
+	<bean id="NewsAction" class="Action.NewsAction" scope="prototype">
+		<property name="newsService" ref="NewsService" />
+		<property name="newsCategoryService" ref="NewsCategoryService" />
+	</bean>	
+	
+	<bean id="NewsCategoryDao" class="DaoImpl.NewsCategoryDaoImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+    </bean>
+    <bean id="NewsCategoryService" class="ServiceImpl.NewsCategoryServiceImpl">
+		<property name="newsCategoryDao">
+			<ref local="NewsCategoryDao" />
+		</property>
+    </bean>
+	<bean id="NewsCategoryAction" class="Action.NewsCategoryAction" scope="prototype">
+		<property name="newsCategoryService" ref="NewsCategoryService" />
+	</bean>
+
+	<bean id="CommentDao" class="DaoImpl.CommentDaoImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CommentService" class="ServiceImpl.CommentServiceImpl">
+		<property name="commentDao">
+			<ref local="CommentDao" />
+		</property>
+	</bean>
+	<bean id="CommentAction" class="Action.CommentAction" scope="prototype">
+		<property name="commentService" ref="CommentService" />
+		<property name="userService" ref="UserService" />
+	</bean>
+
+	<bean id="TestAction" class="Action.TestAction" scope="prototype">
+	</bean>
+</beans>

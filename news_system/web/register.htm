@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://reg.ztgame.com/registe/register.jsp -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>账号注册</title>
+<link href="register/index.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="./普通账号注册_巨人网络_files/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="./普通账号注册_巨人网络_files/swfobject.js"></script>
+<script type="text/javascript" src="./普通账号注册_巨人网络_files/jquery.form.js"></script>
+<script type="text/javascript" src="./普通账号注册_巨人网络_files/pwdcheck.js"></script>
+<script language="javascript" type="text/javascript" src="./普通账号注册_巨人网络_files/reg_selfdom.js"></script>		
+</head>
+
+
+<body>
+   <iframe src="./普通账号注册_巨人网络_files/header.htm" class="header_iframe" frameborder="0" scrolling="no"></iframe>
+<!--    
+<div id="flash1" style="position: absolute; top: 0px; right: 0px;z-index:9999">
+	<embed id="mymovie" height="200" width="200" base="." wmode="transparent" quality="high" name="mymovie" style="undefined" src="images/20120321xiao.swf" type="application/x-shockwave-flash">
+</div>
+<div id="flash2" style="position: absolute; top: 0px; right: 0px;">
+	<embed id="mymovie" height="90" width="90" base="." wmode="transparent" quality="high" name="mymovie" style="undefined" src="images/20120321da.swf" type="application/x-shockwave-flash">
+</div>
+-->
+    <div id="MAIN">
+		<div class="left"><img alt="" src="./普通账号注册_巨人网络_files/left_bg.jpg"></div>
+		<div class="middle_bg">
+			<div class="helpTxt"><a href="http://kf.ztgame.com/" target="_blank">寻求客服帮助</a></div>
+			<div class="title"><img alt="" src="./普通账号注册_巨人网络_files/title_1.jpg"></div>
+			<div class="tab_btn_div">
+				<div class="tab_btn tab_btn_1_2"></div>
+				<div class="tab_btn tab_btn_2_1" onclick="window.location.href=&#39;reg_phone.jsp&#39;">
+					<div class="tuijian"><img alt="" src="./普通账号注册_巨人网络_files/tuijian.gif"></div>
+				</div>
+				<div class="link_txt">
+					<a><img alt="" src="./普通账号注册_巨人网络_files/gou.gif" align="absmiddle">能使用您喜欢的用户名登陆</a>
+					<a><img alt="" src="./普通账号注册_巨人网络_files/gou.gif" align="absmiddle">注册快捷方便</a>
+					<a class="zcfs_btn" onclick="showDiv()"></a>
+				</div>
+			</div>
+	
+		<form method="post" id="f" name="f" action="http://reg.ztgame.com/registe/register">
+			<input type="hidden" name="source" id="source" value="">
+			<input type="hidden" name="expand" id="expand" value="">
+			<input type="hidden" name="usermark" id="usermark" value="">
+			<input type="hidden" name="pwdmark" id="pwdmark" value="">
+			<input type="hidden" name="repwdmark" id="repwdmark" value="">
+			<input type="hidden" name="renamemark" id="pwdmark" value="">
+			<input type="hidden" name="idnummark" id="repwdmark" value="">
+			<input type="hidden" name="valmark" id="valmark" value="">
+			<input type="hidden" name="refurl" id="refurl" value="">
+			<input type="hidden" name="cururl" id="cururl" value="">
+			<input name="reuserpwd" id="reuserpwd" type="hidden" value="">
+			<input name="returnUrl" id="returnUrl" type="hidden" value="">
+			<ul>
+				<li class="inputTxt li_checked">
+					<div class="left">
+						<span class="spanTxt">账号名称</span>：
+						<span class="longInputSpan" style="background:url(&#39;images/register_new/input_bg.gif&#39;) no-repeat;"><input type="text" id="username" name="username" maxlength="47" class="long_input" onfocus="textshow(this,&#39;请设置您的通行证名称,长度为6-47个字符,由数字、字母(不分大小写)或下划线组成,并只能以字母或数字开头,字母或数字结尾&#39;);"></span>
+						<!--  <img id="show_1" class="nonSuccess" alt="" src="images/register_new/v_ok.gif" align="absmiddle" />  -->
+					</div>
+					<div id="show_2" class="noticeTxt noticeTxt1" style="display: block;">请设置您的通行证名称,长度为6-47个字符,由数字、字母(不分大小写)或下划线组成,并只能以字母或数字开头,字母或数字结尾</div>
+				</li>
+				
+				<li id="recommendUserName" style="height: auto; display: none; padding-top: 0px;">
+					<span class="spanTxt">&nbsp;</span>　 
+					<span class="id_notice">
+						<p><font color="#eb7a00">推荐您使用</font></p>
+					</span>
+				</li>
+				
+				<li class="inputTxt passLi">
+					<div class="left">
+						<span class="spanTxt">设置密码</span>：
+						<span class="longInputSpan"><input name="userpwd" id="userpwd" type="password" maxlength="16" class="long_input" onfocus="textshow(this,&#39;由数字、字母或下划线组成，长度为6-16.密码不能和账号名相同&#39;);"></span>
+					 <!--  	<img class="nonSuccess" alt="" src="images/register_new/v_ok.gif" align="absmiddle"/> -->
+					</div>
+					<div class="noticeTxt" style="display: none;">由数字、字母或下划线组成，长度为6-16.密码不能和账号名相同</div>
+					<div class="pass_qd_div">
+						<div id="PASS_QD">密码强度：<img alt="" src="./普通账号注册_巨人网络_files/passBar_1.jpg" align="absmiddle">　弱</div>
+						<!-- 
+						<div class="pass_sm">
+							<div><img alt="" src="images/register_new/passBar_1.jpg" align="absmiddle"/>　　弱　　　　动动脑子好不好？明天你丫就被盗号了</div>
+							<div><img alt="" src="images/register_new/passBar_2.jpg" align="absmiddle"/>　　中　　　　凑合...祈祷木马别看上你</div>
+							<div><img alt="" src="images/register_new/passBar_3.jpg" align="absmiddle"/>　　强　　　　哦哦，终于想出来个靠谱的了</div>
+						</div>
+						 -->
+					</div>	
+				</li>
+				<!--
+				<li id="passWordBig" style="display: none;">
+					<span class="spanTxt" style="width:280px;">&nbsp;</span>
+					<label style="display: none;"  id="PASS_CONTROL"><input id="isShowPassWord"  onclick="setPassWordStyle();"  type="checkbox"/>显示密码字符</label>
+				</li>
+				-->
+				<li class="inputTxt">
+					<div class="left">
+						<span class="spanTxt">真实姓名</span>：
+						<span class="longInputSpan"><input type="text" class="long_input" name="realname" id="realname" maxlength="15" onfocus="textshow_other(this);"></span>
+						<!--  <img class="nonSuccess" alt="" src="images/register_new/v_ok.gif" align="absmiddle" align="absmiddle"/>  -->
+					</div>
+					<div class="noticeTxt" style="display: none;">为了保证您的账户安全,和账号管理维护的方便,请输入与注册身份证一致的姓名</div>
+				</li>
+				<li class="inputTxt">
+					<div class="left">
+						<span class="spanTxt">身份证号码</span>：
+						<span class="longInputSpan"><input type="text" class="long_input" name="idnum" id="idnum" size="30" maxlength="18" onfocus="textshow_other(this);"></span>
+						<!--  <img class="nonSuccess" alt="" src="images/register_new/v_ok.gif" align="absmiddle"/>  -->
+					</div>
+					<div class="noticeTxt noticeTxt1" style="display: none;">为保证您的账户安全,并在账号管理的多项操作中都需要提供您的身份证号,请务必如实输入。未输入真实注册资料还将可能无法参与官方举办的任何活动</div>
+				</li>
+				<li class="inputTxt">
+					<div class="left">
+						<span class="spanTxt">输入右图字符 </span>：
+						<span class="shortInputSpan"><input type="text" class="short_input" name="validatecode" id="validatecode" onfocus="textshow(this,&#39;请输入图中显示的字符&#39;);">
+						
+						</span>
+						<!--  <img id="validatecodeVOkHide" class="nonSuccess" alt="" src="images/register_new/v_ok.gif" align="absmiddle"/>  -->
+						
+						<span class="h1">
+						
+							<!-- < %
+							
+								Random r=new Random();
+								
+								
+								
+								int num=r.nextInt(1000);
+								if(num%2==0){
+									
+								%>
+									<img id="vcode" name="vcode"  < %=Util.getImgRandomStr() %>  src="/registe/hhwm2/< %=Util.getImageUrlToken() %>/"  < %=Util.getImgRandomStr2() %>  height="28" width="160" align="absmiddle"/>&nbsp;<a href="javascript:changeImg();" class="code_style">看不清，换一张</a>
+								< %}else{
+									
+								%>
+									<img id="vcode" name="vcode"  < %=Util.getImgRandomStr() %>  src="/registe/hhwm3/< %=Util.getImageUrlToken() %>/"  < %=Util.getImgRandomStr2() %>  height="28" width="160" align="absmiddle"/>&nbsp;<a href="javascript:changeImg();" class="code_style">看不清，换一张</a>
+									
+								< %}%>
+								-->
+							
+							<!--<input name="isNum" id="isNum" type="text" style="display:none;" value="< %=num%>"/>-->
+							
+							<img id="vcode" name="vcode" onerror="javascript:this.src=&quot;images/validate/10.jpg&quot;" srcdsjkff3knmdwjkjafaofdgkjqtkjzk4jfkakwe3hjfhjs2="kakwe3hjfhjs2" srcjzk4jfkakwe3hjfhjs2="sjkff3knmdwjkjafaofdgkjqtkjzk4jfkakwe3hjfhjs2" src="./普通账号注册_巨人网络_files/saved_resource" srckakwe3hjfhjs2="jfhjs2" height="28" width="160" align="absmiddle">&nbsp;<a href="javascript:changeImg();" class="code_style">看不清，换一张</a>
+							
+						</span>
+					</div>
+					<div id="validatecodeDivHide" class="noticeTxt" style="display: none;">请输入图中显示的字符</div>
+					
+				</li>
+				<!--<li>
+					<div style="padding-left:100px;">
+							< %Captcha captcha=Captcha.load(request,"ExampleCaptcha");
+								captcha.renderCaptchaMarkup(pageContext.getServletContext(),pageContext.getOut());%>
+						</div>
+				</li>-->
+				<li>
+					<span class="spanTxt">&nbsp;</span>　
+					<input type="checkbox" id="chkagreement" name="chkagreement" checked="checked">
+						我接受<a href="http://reg.ztgame.com/registe/agreement.html" target="_blank">《巨人用户注册协议书》</a>
+					<!--  <img class="nonSuccess" alt="" src="images/register_new/v_ok.gif" align="absmiddle"/>  -->
+				</li>
+				<li class="li_bottom">
+					<span class="spanTxt">&nbsp;</span>　
+					<img alt="" id="submitBut" height="43" src="./普通账号注册_巨人网络_files/reg_btn.jpg" align="absmiddle">
+					<img src="./普通账号注册_巨人网络_files/submitBut_ok">
+				</li>
+				<li class="bottom_line"></li>
+			</ul>
+		</form>
+		
+		</div>
+		<div class="left"><img alt="" src="./普通账号注册_巨人网络_files/right_bg.jpg"></div>
+    </div> 
+	<iframe src="./普通账号注册_巨人网络_files/footer.htm" class="footer_iframe" frameborder="0" scrolling="no"></iframe>
+	
+		
+	<!--弹出层-->
+	<div class="show_div" style="width:610px;">
+		<div class="title_div">
+			<div class="title">温馨提示</div>
+			<div class="show_close_btn"><img alt="" src="./普通账号注册_巨人网络_files/show_close_btn.jpg" align="absmiddle"></div>
+		</div>
+		
+		<div class="content">
+			<div class="show_wenhao"><img alt="" src="./普通账号注册_巨人网络_files/show_wenhao.jpg"></div>
+
+			<div class="mainTxt">两种注册方式有什么不同？</div>
+		</div>
+		
+		<div class="zcfs_img"><img alt="" src="./普通账号注册_巨人网络_files/zcfs_img.jpg"></div>
+		
+		
+		<div class="btn_div">
+			<img alt="" src="./普通账号注册_巨人网络_files/show_ok_btn.jpg" align="absmiddle">
+		</div>
+	</div>
+	<div id="SHOW_MASK">
+
+		<div class="show_mask"></div>
+	</div>
+	
+	
+
+<script language="JavaScript" type="text/JavaScript">
+	var __Idcard = '' ;
+	
+	function changeImg()
+	{
+	//test
+	
+		//var num=Math.floor(Math.random()*1000+0);
+		//if(num%2==0){
+			//document.getElementById('vcode').src='/registe/Gxie3uImRi8qut2.jsp?token='+Math.random();
+			//document.getElementById('vcode').src='/registe/hhwm2/FD353863656231626436643635A94B3CF88DPMTMjAxNjAzMjQxNzMxMTU=/?i='+Math.random();
+			//document.getElementById('isNum').value=num;
+		//}else{
+			//document.getElementById('vcode').src='/registe/Gxie3uImRi8qut3.jsp?token='+Math.random();
+			document.getElementById('vcode').src='/registe/hhwm3/AM646262313130653938373531686D26E5EBY62MjAxNjAzMjQxNzMxMTU=/?i='+Math.random();
+			//document.getElementById('isNum').value=num;
+		//}
+		//document.getElementById('vcode').src='/registe/hhwm/TC396165643762393632366133A22ED6E018NM5MjAxNjAzMjQxNzMxMTU=/?i='+Math.random();
+	}
+	
+</script>
+
+
+<script language="JavaScript" type="text/JavaScript">
+	document.write("<scr"+"ipt src='http://js.ztgame.com/stat.js'></scr"+"ipt>");
+</script><script src="./普通账号注册_巨人网络_files/stat.js"></script></body></html>

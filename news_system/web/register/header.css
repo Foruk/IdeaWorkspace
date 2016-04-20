@@ -1,0 +1,50 @@
+/*
+2011.6.22
+hujunjie
+
+我的通行证
+*/
+
+
+body{
+	margin:0; 
+	padding:0;
+	width:100%;
+	font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Arial,sans-serif;
+    font-size: 12px;
+	background:url(../../images/register_new/header_bg.jpg) repeat-x scroll center top #ffffff;
+	}
+
+.head_main_div{
+	width:960px; 
+	height:90px;
+	margin:0 auto; 
+	position:relative; 
+	top:0px; 
+	left:0px;
+	}
+a{
+	color:#0071c7;
+	}
+
+a img{
+	border:none;
+}
+	
+.head_main_div img{
+	padding-right:210px;
+	}
+
+.head_main_div span{
+	padding-left:20px;
+	}
+.head_main_div span img{
+	padding-right:0;
+	cursor:pointer;
+	}
+.headLink{
+	position:relative;
+	top:0px;
+	top:-3px\9;
+	*top:0px;
+	}
